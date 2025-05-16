@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saldo Multi</title>
+
+<style>
+
+/* Estilos Globais */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  border: 1px solid red;
+}
+img {
+  object-fit: contain;
+}
+body {
+  background: white;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #E80537;
+  border-radius: 6px;
+  border: 0px solid #F5F5F5;
+}
+:-webkit-scrollbar {
+  width: 6px;
+  height: 12px;
+  background-color: #F5F5F5;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #cdcdcd;
+  border-radius: 6px;
+  border: 0px solid #F5F5F5;
+}
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+.max__width {
+  max-width: 1280px;
+  width: calc(100% - 100px);
+  margin: 0 auto
+}
+/* BUTTONS */
+button {
+  background: none;
+  border: none;
+}
+.button__red, .button__gray, .button__white {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  font-weight: 500;
+  border-radius: 16px;
+  height: 48px;
+  font-size: 16px;
+  text-decoration: none;
+  border: none;
+  width: max-content;
+  cursor: pointer;
+  transition: .5s;
+  justify-content: center;
+}
+.button__red {
+  color: white;
+  background: var(--red);
+}
+.button__gray {
+  background: #F3F3F3;
+  color: black;
+}
+.button__white {
+  position: absolute;
+  right: 16px;
+  color: var(--red);
+  background: white;
+}
+.button__red:hover {
+  background: #af0026;
+  transition: .5s;
+}
+.button__white:hover {
+  background: #ececec;
+  transition: .5s;
+}
+
+/* BANNER */
+h1 {
+  font-size: 40px;
+}
+.banner p {
+  font-size: 20px;
+  width: 100%;
+}
+.banner__grid {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 100px;
+  padding: 200px 0 0 0;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+}
+.banner__col--1 {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+  max-width: 460px;
+  height: max-content;
+}
+.banner__col--2 {
+  height: 600px;
+}
+.banner__cellphone {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.banner__tags {
+  display: flex;
+  justify-content: center;
+  width: 410px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.banner__tag {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  border-radius: 50px;
+  height: 40px;
+  padding: 0 20px;
+  text-wrap: nowrap;
+  white-space: nowrap;
+  font-size: 16px;
+}
+.banner__tag--red {
+  background: #FF8888;
+  color: black;
+}
+.banner__tag--orange {
+  background: #FFAC66;
+  color: black;
+}
+.banner__tag--green {
+  background: #9CE59C;
+  color: #163516;
+}
+
+/* INOVAR */
+.inovar {
+  margin: auto;
+  width: 100%;
+  margin-bottom: 100px;
+}
+.inovar__container {
+  margin: auto;
+  position: relative;
+  max-width: 1280px;
+  width: calc(100% - 100px);
+}
+.inovar__ctn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #E80537;
+  padding: 100px;
+  border-radius: 41px;
+  gap: 24px;
+  color: white;
+  width: 100%;
+  margin: auto;
+}
+.inovar__p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 120%;
+}
+.inovar__grafismo {
+  position: absolute;
+}
+.inovar__grafismo--1 {
+  left: -120px;
+  top: -150px;
+}
+.inovar__grafismo--2 {
+  right: -160px;
+  bottom: -160px;
+}
+h2 {
+  font-size: 56px;
+}
+.inovar__p--1 {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 120%;
+  letter-spacing: 0px;
+  text-align: center;
+}
+.inovar__video {
+  border: 2px #D3D3D3 solid;
+  border-radius: 27px;
+  height: 489px;
+  width: 100%;
+  max-width: 868px;
+  background: white;
+  box-shadow: 0px 2.33px 1.87px #00000003,
+              0px 5.61px 4.49px #00000004,
+              0px 10.57px 8.45px #00000005,
+              0px 18.85px 15.08px #00000006,
+              0px 35.25px 28.2px #00000007,
+              0px 84.38px 67.5px #0000000A;
+
+}
+/* HEADER */
+.banner__header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 68px;
+  width: calc(100% - 100px);
+  padding: 0 16px 0 32px;
+  max-width: 1280px;
+  top: 24px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  background: #E80537;
+  border-radius: 24px;
+  z-index: 4;
+}
+.banner__header a {
+  height: 32px;
+}
+.banner__logo {
+  object-fit: contain;
+  object-position: left;
+  height: 32px;
+  width: max-content;
+}
+/* BREVE */
+.breve__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 130px;
+  width: 100%;
+}
+.breve__chegam {
+  color: #E80537;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 200%;
+  margin-bottom: 40px;
+}
+.breve__item {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 52px;
+}
+h3 {
+  font-size: 44px;
+  line-height: 120%;
+  font-weight: 700;
+  width: 100%;
+  max-width: 552px;
+  margin-bottom: 40px;
+}
+.breve__pix {
+  margin-bottom: 80px;
+  font-size: 20px;
+}
+.breve__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 4px;
+}
+.breve__head {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 120%;
+}
+/* MULTI */
+.multi__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 130px;
+}
+.multi__nova {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 120%;
+}
+.multi__tudo {
+  font-size: 32px;
+  font-weight: 500;
+  color: #767676;
+}
+.multi__saldo {
+  font-size: 24px;
+  line-height: 120%;
+}
+.multi__gap {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.multi__alert {
+  background: #F08787;
+  border-radius: 24px;
+  font-size: 18px;
+  padding: 28px;
+  width: 100%;
+  color: #74031C;
+}
+.multi__plus {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 44px;
+  color: #E80537;
+  font-weight: 700;
+  line-height: 120%;
+}
+.multi__img {
+  width: 97px;
+  height: 97px;
+  filter: 
+    drop-shadow(0px 2px 2px #00000005)
+    drop-shadow(0px 6px 5px #00000007)
+    drop-shadow(0px 12px 10px #00000009)
+    drop-shadow(0px 22px 17px #0000000B)
+    drop-shadow(0px 41px 33px #0000000D)
+    drop-shadow(0px 100px 80px #00000012);
+}
+.multi__column--2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 48px;
+  max-width: 518px;
+}
+
+/* TAGS */
+.tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 120px 0;
+  gap: 10px;
+}
+.tags__tag {
+  width: 311.73944091796875;
+  height: 37.895782470703125;
+  border-radius: 90.28px;
+  padding-top: 6.95px;
+  padding-right: 17.37px;
+  padding-bottom: 6.95px;
+  padding-left: 17.37px;
+  gap: 8px;
+  color: white;
+  font-weight: 700;
+  font-size: 13.9px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  text-wrap: nowrap;
+  white-space: nowrap;
+}
+.tags__tag--vermelha {
+  background: #E80537;
+}
+.tags__tag--vermelha-escuro {
+  background: #74031C;
+}
+.tags__tag--laraja {
+  background: #FF7500;
+}
+/* CARDS */
+.cards {
+  padding: 75px 40px;
+  max-width: calc(1280px + 80px);
+  margin: auto;
+}
+.cards * {
+  transition: 1s;
+}
+.cd__grid {
+  position: relative;
+  display: flex;
+  gap: 20px;
+}
+.cd__grafismo {
+  position: absolute;
+  pointer-events: none;
+}
+.cd__grafismo--1 {
+  left: -75px;
+  top: -54px;
+  width: 175px;
+  height: 175px;
+  z-index: 2;
+}
+.cd__card {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 25%;
+  height: 540px;
+  background: #F08787;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: .8s; /* Tempo para fechar o card abrir */
+}
+.cd__grafismo--2 {
+  width: 289px;
+  height: 289px;
+  bottom: -60px;
+  right: -120px;
+  z-index: 2;
+}
+.cd__grafismo--3 {
+  right: -40px;
+  top: 75px;
+  width: 110px;
+  height: 122px;
+  z-index: 2;
+}
+.cd__icon {
+  position: absolute;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  left: 20px;
+  bottom: 20px;
+  z-index: 2;
+}
+.cd__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .8s;
+  border-radius: 16px;
+  z-index: 1;
+}
+.cd__texts {
+  position: absolute;
+  display: flex;
+  right: 0;
+  top: 0;
+  flex-direction: column;
+  gap: 20px;
+  padding: 54px 36px 51px 36px;
+  font-size: 16px;
+  height: 100%;
+  width: 50%;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: .1s;
+  border-radius: 0 16px 16px 0;
+  background: #f0878731;
+  backdrop-filter: blur(50px);
+  z-index: 3;
+}
+.cd__title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 120%;
+  letter-spacing: 0px;
+}
+.cd__p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0px;
+}
+.cd__card:hover {
+  width: 100%;
+}
+.cd__card:hover .cd__texts {
+  opacity: 1;
+  transition: .5s;
+  transition-delay: .7s; /* Delay para o texto aparecer */
+}
+.cd__card:hover .cd__img {
+  width: 50%;
+  border-radius: 16px 0px 0px 16px;
+}
+/* FAQ */
+.faq {
+  display: flex;
+  flex-direction: column;
+  margin: 100px auto;
+  gap: 48px;
+  width: calc(100% - 300px);
+}
+.faq__title {
+  font-size: 58px;
+  line-height: 120%;
+  font-weight: 700;
+  color: #1D1D1D;
+}
+.faq__container {
+  transition: .2s;
+  width: 100%;
+}
+.faq__item {
+  transition: .2s;
+}
+.faq__header {
+  display: flex;
+  color: #E80537;
+  font-size: 32px;
+  font-weight: 500;
+  gap: 20px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 42px;
+}
+.faq__header * {
+  pointer-events: none;
+}
+.faq__p {
+  color: #4D4D4D;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+.faq__content {
+  display: none;
+  flex-direction: column;
+  margin-bottom: 32px;
+  margin-bottom: 20px;
+}
+/* COLLAPSE */
+collapse, collapse * {
+  transition: .5s;
+}
+collapse {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  max-width: 1280px;
+  margin-bottom: 60px;
+}
+collapse-arrow {
+  position: absolute;
+  background-image: url("https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/fd229096-ad7d-40bc-b202-286610fdd803.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-width: 30px;
+  min-height: 30px;
+  right: 0;
+}
+collapse-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  border: 1px solid #d3d3d3;
+  padding: 20px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #4d4d4d;
+  background: #FCFCFC;
+  width: 100%;
+  /* min-width: 380px; */
+  max-width: 600px;
+  height: max-content;
+}
+collapse-header {
+  position: relative;
+  display: flex;
+  padding-right: 60px;
+  color: #4D4D4D;
+  font-weight: 400;
+  align-items: center;
+  min-height: max-content;
+}
+collapse-content {
+  height: 0px;
+  overflow: hidden;
+  font-size: 16px;
+}
+collapse-content p {
+  line-height: 124%;
+}
+.collapse--open {
+  height: max-content;
+}
+.collapse--open collapse-arrow {
+  transform: rotate(-180deg);
+}
+.collapse--open collapse-content {
+  height: max-content;
+  margin-top: 12px;
+}
+.collapse--open collapse-header {
+  font-weight: 600;
+  transition: .2s;
+}
+/* FOOTER ↓ */
+footer {
+  border-radius: 32px;
+  background: #E80537;
+  padding: 48px 100px;
+  margin-bottom: 20px !important;
+}
+.footer__margin {
+  height: 24px !important;
+}
+.footer__logo {
+  object-fit: contain;
+  object-position: left;
+  height: 54px;
+}
+.footer__blog {
+  display: flex;
+  justify-content: center;
+  justify-content: flex-end;
+  align-items: center;
+  height: 48px;
+  padding: 10px 20px;
+  border-radius: 14px;
+  background: white;
+  color: #E80537;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  text-decoration: none;
+}
+.footer__redes {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 32px;
+}
+.footer__border {
+  background-color: #FFF;
+  height: 2px;
+  width: 100%;
+  border: none !important;
+}
+.footer__mob img {
+  height: 48px;
+  object-fit: contain;
+}
+.footer__icons, .footer__mob {
+  display: flex;
+  gap: 8px;
+}
+.footer__direitos {
+  color: #FFF;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+}
+.footer__privacidade {
+  display: flex;
+  gap: 32px;
+}
+.footer__privacidade a {
+  color: #FFF;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 160%;
+  text-decoration-line: underline;
+}
+.footer__privacidade p {
+  color: #FFF;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+}
+.footer__termos {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 4vh;
+}
+
+@media screen and (max-width: 1000px) {
+  .max__width {
+    width: calc(100% - 40px);
+  }
+  /* HEADER */
+  .banner__header {
+    width: calc(100% - 40px);
+  }
+  /* BANNER */
+  .banner__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .banner__tags {
+    width: 100%;
+  }
+  /* INOVAR */
+  .inovar__ctn {
+    padding: 32px 20px;
+  }
+  .inovar__grafismo--1 {
+    width: 103px;
+    height: 115px;
+    left: -38px;
+    top: -80px;
+  }
+  .inovar__p {
+    line-height: 150%;
+  }
+  .inovar__p--1, .inovar__p {
+    font-size: 16px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  .inovar__grafismo--2 {
+    width: 142px;
+    height: 149px;
+    right: -60px;
+    bottom: -60px;
+  }
+  .inovar__container {
+    width: 100%;
+  }
+  .inovar__ctn {
+    border-radius: 0;
+  }
+  /* BREVE */
+  .breve__container {
+    display: flex;
+    flex-direction: column;
+  }
+  /* MULTI */
+  .multi__grid {
+    display: flex;
+    flex-direction: column;
+  }
+  /* CD */
+  .cd__icon {
+    top: 69px;
+  }
+  /* CARDS */
+  .cards {
+    padding: 75px 20px;
+    overflow: hidden;
+  }
+  .cd__grid {
+    flex-direction: column;
+  }
+  .cd__card {
+    flex-direction: column;
+    width: 100%;
+    min-height: 160px;
+    height: max-content;
+    max-height: 160px;
+    transition: .8s; /* Tempo para fechar o card abrir */
+  }
+  .cd__img {
+    height: 160px;
+    max-height: 160px;
+  }
+  .cd__texts {
+    position: relative;
+    width: 100%;
+    height: max-content;
+    transition-delay: 0s;
+    transition: 1s; /* Tempo para ocultar o texto */
+  }
+  .cd__card:hover {
+    height: max-content;
+    max-height: 1000px;
+    transition: 2s; /* Tempo para abrir o card abrir */
+  }
+  .cd__card:hover .cd__img {
+    width: 100%;
+    height: max-content;
+    border-radius: 16px 16px 0px 0px;
+  }
+  .cd__card:hover .cd__texts {
+    height: max-content;
+    transition-delay: 0s;
+    border-radius: 0 0 16px 16px;
+  }
+  .cd__grafismo--1 {
+    width: 90px;
+    height: 90px;
+    left: -30px;
+    top: -34px;
+  }
+  /* Footer */
+  .footer__redes, .footer__termos, .footer__privacidade, .footer__icons {
+    display: flex;
+    flex-direction: column;
+  }
+  footer {
+    width: calc(100% - 40px);
+    margin: 20px auto;
+    padding: 24px 40px 32px 40px;
+  }
+  .footer__redes {
+    align-items: center;
+  }
+  .footer__logo {
+    object-position: center;
+    margin-bottom: 24px;
+  }
+  .footer__icons {
+    align-items: center;
+    gap: 16px;
+  }
+  .footer__termos, .footer__privacidade {
+    gap: 32px;
+  }
+  footer * {
+    text-align: center !important;
+  }
+}
+</style>
+
+</head>
+
+</body>
+<!-- HEADER -->
+<header class="banner__header">
+  <a data-hash="e_003_001_037_002_057_001" href="https://caju.com.br/" target="_blank">
+    <img class="banner__logo" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/cb719f09-f4b4-4754-8538-89a322ee8a43.png" width="300" height="32" alt="">
+  </a>
+</header>
+
+<!-- BANNER -->
+<section class="max__width banner">
+  <div class="banner__grid">
+    <div class="banner__col--1">
+      <img src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/2b659eba-1958-4136-9c01-400f486f807e.png" width="45" height="62" alt="">
+      <h1>Sua jornada, nosso ecossistema de soluções</h1>
+      <p>
+        Desde o início, a Caju foi pensada para facilitar o dia a dia de quem cuida e de quem recebe.
+      </p>
+      <p>
+        Agora, seguimos expandindo esse propósito com ecossistema de soluções — e isso é só o começo.
+      </p>
+
+      <div class="banner__tags">
+        <div class="banner__tag banner__tag--red">Conta Digital com Pix</div>
+        <div class="banner__tag banner__tag--orange">Categoria Saldo Multi</div>
+        <div class="banner__tag banner__tag--green">e muito mais em 2025</div>
+      </div>
+
+    </div>
+    
+    <div class="banner__col--2">
+      <img class="banner__cellphone" src="https://cdn.pixabay.com/photo/2013/07/13/12/46/iphone-160307_1280.png" width="" height="" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- INOVAR -->
+<section class="inovar">
+  <div class="inovar__container">
+    <div class="inovar__ctn">
+      <img class="inovar__grafismo inovar__grafismo--1" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/b8cc3bd9-15fe-4515-bd79-87ae0e32dffc.png" width="340" height="381" alt="">
+      <img class="inovar__grafismo inovar__grafismo--2" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/0f48f681-118d-49fc-84a3-032c4dab3857.png" width="416" height="417" alt="">
+      <p class="inovar__p--1">Inovar faz parte da nossa essência.</p>
+      <h2>Liderar a mudança é escolha.</h2>
+      
+      <p class="inovar__p">Na Caju, acreditamos que cuidar de pessoas exige <strong>soluções que evoluem junto com o tempo</strong>, com os desafios e com as necessidades das empresas e colaboradores.</p>
+      <p class="inovar__p">
+        Por isso, estamos <strong>ampliando nosso ecossistema de soluções</strong>.
+        <br>
+        Para dar mais autonomia, mais controle, mais simplicidade para quem vive essa jornada todos os dias.
+      </p>
+      <div class="inovar__video"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BREVE -->
+<section class="max__width breve">
+  <div class="breve__container">
+    <div class="breve__column--1">
+      <p class="breve__chegam">Duas novidades importantes chegam em breve:</p>
+      <h3>A conta digital que simplifica sua vida, no app da Caju que você já usa.</h3>
+      <p class="breve__pix">Pix, boletos, saques: tudo centralizado, sem complicação.</p>
+
+      <div class="breve__item">
+        <img class="breve__icon" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/1aac6767-a7ec-4a10-abc9-15db3f569721.png" width="60" height="60" alt="">
+        <div class="breve__text">
+          <p class="breve__head">Pix direto do app</p>
+          <p>Envie e receba Pix em poucos cliques, usando seu saldo da Conta Digital da Caju.</p>
+        </div>
+      </div>
+
+      <div class="breve__item">
+        <img class="breve__icon" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/9b52c63d-9e4f-457e-a5d1-2f4972164e4b.png" width="60" height="60" alt="">
+        <div class="breve__text">
+          <p class="breve__head">Boletos e saques</p>
+          <p>Pague boletos e saque sempre que precisar.</p>
+        </div>
+      </div>
+
+      <div class="breve__item">
+        <img class="breve__icon" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/3293557d-ca2b-4610-b352-43251601d5d6.png" width="60" height="60" alt="">
+        <div class="breve__text">
+          <p class="breve__head">Tudo no mesmo cartão</p>
+          <p>A nova conta funciona com o cartão que você já usa. Simples assim.</p>
+        </div>
+      </div>
+
+      <div class="breve__item">
+        <img class="breve__icon" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/ba4390ca-6e33-437d-a6e8-e708a3863db2.png" width="60" height="60" alt="">
+        <div class="breve__text">
+          <p class="breve__head">Seguro, transparente e do seu jeito</p>
+          <p>Mais controle, mais autonomia, mais liberdade para você.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="breve__column--2">
+
+    </div>
+
+  </div>
+</section>
+
+<!-- MULTI -->
+<section class="max__width multi">
+
+  <div class="multi__grid">
+    <div class="multi__column--1">
+     
+    </div>
+  
+    <div class="multi__column--2">
+      <div class="multi__gap">
+        <p class="multi__nova">E uma nova categoria de benefício:</p>
+        <div class="multi__plus">
+          <img class="multi__img" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/6d227e64-1112-485c-90bb-a64f7661a525.png" height="97" width="97" alt="">
+          <p>Saldo Multi</p>
+        </div>
+        <p class="multi__tudo">O saldo que vale para tudo!</p>
+      </div>
+
+      <p class="multi__saldo">Com o Saldo Multi, o colaborador tem liberdade para usar como quiser nas  8 categorias da CLT: saúde, mobilidade,  cultura e até alimentação, caso os valores depositados pelo RH já tenham sido consumidos.</p>
+
+      <p class="multi__alert">Para o RH, <strong>mais controle e gestão em um só lugar</strong>, com toda a segurança jurídica que a empresa precisa.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- TAGS -->
+<section class="tags">
+
+  <div class="tags__tag tags__tag--vermelha">Comprar um remédio ou agendaterapia</div>
+  <div class="tags__tag tags__tag---escuro">Pagar o transporte</div>
+  <div class="tags__tag tags__tag--laraja"> Investir em educação ou bem-estar</div>
+  <!-- <img src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/954e8971-e9f5-4e68-825c-dd18129ec999.png" width="1062" height="185" alt="" > -->
+
+</section>
+
+<!-- CARDS -->
+<section class="cards">
+  <div class="cd__grid">
+    <img class="cd__grafismo cd__grafismo--1" width="175" height="175" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/33799702-bc85-48d9-8aad-86859b653149.png" alt="">
+    <div class="cd__card">
+      <img class="cd__icon" width="72" height="72" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/c41dac48-6c11-4dee-89c3-74962e4394b1.png" alt="">
+      <img class="cd__img" src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      
+      <div class="cd__texts">
+        <p class="cd__title">Alimentação</p>
+        <p class="cd__p">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis a mauris eget varius. Mauris eget nisi lorem. Nunc dapibus, metus ut sagittis maximus, sapien diam cursus quam, quis pellentesque arcu erat a metus.
+        </p>
+        <p class="cd__p">
+          Nullam vehicula urna non augue elementum, sed mollis lorem egestas. Cras ultricies nec nulla at rhoncus. Nulla eget felis non enim cursus volutpat. Mauris metus quam, mattis eget tellus nec, interdum ullamcorper turpis.
+        </p>
+      </div>
+    </div>
+
+    <div class="cd__card">
+      <img class="cd__grafismo cd__grafismo--2" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/173f5de0-a00a-4cd4-b64a-6cbae9f62f2b.png" width="289" height="289" alt="">
+      <img class="cd__icon" width="72" height="72" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/6107043e-91d1-4773-94a9-4d2a8a003fab.png" alt="">
+      <img class="cd__img" src="https://plus.unsplash.com/premium_photo-1710467003053-675011709dc7?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      
+      <div class="cd__texts">
+        <p class="cd__title">Alimentação</p>
+        <p class="cd__p">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis a mauris eget varius. Mauris eget nisi lorem. Nunc dapibus, metus ut sagittis maximus, sapien diam cursus quam, quis pellentesque arcu erat a metus.
+        </p>
+        <p class="cd__p">
+          Nullam vehicula urna non augue elementum, sed mollis lorem egestas. Cras ultricies nec nulla at rhoncus. Nulla eget felis non enim cursus volutpat. Mauris metus quam, mattis eget tellus nec, interdum ullamcorper turpis.
+        </p>
+      </div>
+    </div>
+
+    <div class="cd__card">
+      <img class="cd__icon" width="72" height="72" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/6e291a53-9950-4ce4-b3fb-4eb34ee7d007.png" alt="">
+      <img class="cd__img" src="https://plus.unsplash.com/premium_photo-1684888476715-a00870431463?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      
+      <div class="cd__texts">
+        <p class="cd__title">Alimentação</p>
+        <p class="cd__p">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis a mauris eget varius. Mauris eget nisi lorem. Nunc dapibus, metus ut sagittis maximus, sapien diam cursus quam, quis pellentesque arcu erat a metus.
+        </p>
+        <p class="cd__p">
+          Nullam vehicula urna non augue elementum, sed mollis lorem egestas. Cras ultricies nec nulla at rhoncus. Nulla eget felis non enim cursus volutpat. Mauris metus quam, mattis eget tellus nec, interdum ullamcorper turpis.
+        </p>
+      </div>
+    </div>
+
+    <div class="cd__card">
+      <img class="cd__grafismo cd__grafismo--3" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/f6906c82-7bd2-449a-8818-44babb50b4a9.png" width="122" height="122" alt="">
+      <img class="cd__icon" width="72" height="72" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/d0492613-735a-4ed7-91e6-b07e2739a8d8.png" alt="">
+      <img class="cd__img" src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      
+      <div class="cd__texts">
+        <p class="cd__title">Alimentação</p>
+        <p class="cd__p">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis a mauris eget varius. Mauris eget nisi lorem. Nunc dapibus, metus ut sagittis maximus, sapien diam cursus quam, quis pellentesque arcu erat a metus.
+        </p>
+        <p class="cd__p">
+          Nullam vehicula urna non augue elementum, sed mollis lorem egestas. Cras ultricies nec nulla at rhoncus. Nulla eget felis non enim cursus volutpat. Mauris metus quam, mattis eget tellus nec, interdum ullamcorper turpis.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq max__width">
+  <p class="faq__title">
+    Ficou com alguma dúvida? <br> 
+    A resposta está aqui!
+  </p>
+
+  <div class="faq__container" id="faqId">
+
+    <div class="faq__item" faqItem>
+      <button class="faq__header">
+        <p>Sou empresa</p>
+        <img arrowRed src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/0da0b369-9b9b-41fa-90e4-1890fe339aca.png" width="40" height="40" alt="">
+      </button>
+
+      <div class="faq__content">
+        
+        <p class="faq__p">1. Visão geral das mudanças</p>
+        <collapse alturaDoHeader="88" valorDeReferencia="collapse1"></collapse>
+        
+        <p class="faq__p">2. Conta Digital – Como funciona</p>
+        <collapse alturaDoHeader="66" valorDeReferencia="collapse2"></collapse>
+        
+        <p class="faq__p">3. Saldo Multi – O que é e como usar</p>
+        <collapse alturaDoHeader="66" valorDeReferencia="collapse3"></collapse>
+        
+        <p class="faq__p">4. Caju Premiações & Caju Despesas – O que muda</p>
+        <collapse alturaDoHeader="66" valorDeReferencia="collapse4"></collapse>
+        
+        <p class="faq__p">5. Jornada operacional</p>
+        <collapse alturaDoHeader="88" valorDeReferencia="collapse5"></collapse>
+        
+        <p class="faq__p">6. Suporte e próximos passos</p>
+        <collapse alturaDoHeader="66" valorDeReferencia="collapse6"></collapse>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2 -->
+    <div class="faq__item" faqItem>
+      <button class="faq__header">
+        <p>Sou colaborador</p>
+        <img arrowRed src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/0da0b369-9b9b-41fa-90e4-1890fe339aca.png" width="40" height="40" alt="">
+      </button>
+
+      <div class="faq__content">
+        <p class="faq__p">1. Quais são as novidades da Caju?</p>
+        <collapse alturaDoHeader="90" valorDeReferencia="colaborador1"></collapse>
+        
+        <p class="faq__p">2. Como usar a Conta Digital</p>
+        <collapse alturaDoHeader="90" valorDeReferencia="colaborador2"></collapse>
+        
+        <p class="faq__p">3. Sobre o Saldo Multi</p>
+        <collapse alturaDoHeader="90" valorDeReferencia="colaborador3"></collapse>
+        
+        <p class="faq__p">4. Segurança, ativação e dúvidas gerais</p>
+        <collapse alturaDoHeader="70" valorDeReferencia="colaborador4"></collapse>
+        
+      </div>
+
+    </div>
+
+  </div>
+
+  
+</section>
+
+<!-- FOOTER -->
+<footer class="max__width">
+  <div class="footer__redes">
+    <a href="https://caju.com.br/" target="_blank">
+      <img class="footer__logo" width="300" height="40"
+        src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/cb719f09-f4b4-4754-8538-89a322ee8a43.png"
+        alt="Logo caju">
+    </a>
+    <div class="footer__icons">
+      <a data-hash="e_003_008_038_085_419_001" href="https://blog.caju.com.br/" target="_blank" class="footer__blog">Acesse nosso blog</a>
+      <div class="footer__mob">
+        <a data-hash="e_003_001_001_033_062_001" data-label="instagram" href="https://www.instagram.com/caju/" target="_blank">
+          <img height="48" width="48" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/d7c9baf5-e785-406b-a905-49e67c8434f9.png" alt="">
+        </a>
+
+        <a data-hash="e_003_001_001_033_062_001" data-label="linkedin" href="https://www.linkedin.com/company/cajubeneficios/posts/?feedView=all" target="_blank">
+          <img height="48" width="48" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/ef1f7f85-aa9a-4e69-98d6-605e88919cf9.png" alt="">
+        </a>
+
+        <a data-hash="e_003_001_001_033_062_001" data-label="facebook" href="https://pt-br.facebook.com/cajubeneficios/" target="_blank">
+          <img height="48" width="48" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/120ebd23-2107-42f8-9ef2-e85b61d08117.png" alt="">
+        </a>
+
+        <a data-hash="e_003_001_001_033_062_001" data-label="youtube" href="https://www.youtube.com/CajuBenef%C3%ADcios" target="_blank">
+          <img height="48" width="48" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/d7fc55fa-4662-465e-8de8-594ca8e88aae.png" alt="">
+        </a>
+
+        <a data-hash="e_003_001_001_033_062_001" data-label="x" href="https://x.com/cajubeneficios" target="_blank">
+          <img height="48" width="48" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/ffceb849-08d2-4d66-b601-d019c7c30bc8.png" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__border"></div>
+  <div class="footer__termos">
+    <p class="footer__direitos">Caju® 2025. Todos os direitos reservados.</p>
+    <div class="footer__privacidade">
+      <a data-hash="e_003_008_038_087_165_001" href="https://www.caju.com.br/privacidade" target="_blank">Política de privacidade</a>
+      <a data-hash="e_003_008_038_087_249_001" href="https://www.caju.com.br/termos-de-uso/empresas" target="_blank">Termos de Uso</a>
+      <p>Feito com 🧡 pelos Cajuenses</p>
+    </div>
+  </div>
+</footer>
+<body>
+<script src="./script.js"></script>
+</html>
