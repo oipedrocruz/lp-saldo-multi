@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Saldo Multi</title>
+<title>Caju - Sua jornada, nosso ecossistema de soluções</title>
+<link rel="shortcut icon" href="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/681e685d-593f-483f-89b6-d6aa39355015.png" type="image/x-icon">
+<meta property="og:image" content="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/0d93b1cb-ce89-4f87-9e7b-868716ed40cd.png">
+<meta property="og:type" content="website">
 
 <style>
 
@@ -15,7 +18,8 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  /* border: 1px solid red; */
+  -webkit-tap-highlight-color: transparent; /* Para dispositivos móveis */
+  /* border: 1px solid rgb(255, 156, 156); */
 }
 img {
   object-fit: contain;
@@ -161,6 +165,7 @@ h1 {
 .inovar {
   margin: auto;
   width: 100%;
+  overflow-x: clip;
 }
 .inovar__container {
   margin: auto;
@@ -222,6 +227,10 @@ h2 {
               0px 18.85px 15.08px #00000006,
               0px 35.25px 28.2px #00000007,
               0px 84.38px 67.5px #0000000A;
+}
+.inovar__arrow {
+  width: 60px;
+  height: 60px;
 }
 /* HEADER */
 .banner__header {
@@ -306,11 +315,16 @@ h3 {
   margin-left: auto;
 }
 .breve__column--2 {
-  width: 420px;
+  max-width: 420px;
+  width: 100%;
   margin: auto;
 }
 .breve__column--2 img {
   height: max-content;
+}
+.cellphone {
+  width: 100%;
+  max-width: 420px;
 }
 /* MULTI */
 .multi__grid {
@@ -324,6 +338,9 @@ h3 {
   line-height: 120%;
 }
 .multi__tudo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 32px;
   font-weight: 500;
   color: #767676;
@@ -398,6 +415,7 @@ h3 {
   color: white;
   border-radius: 90px;
   padding: 0 44px;
+  gap: 24px;
   font-weight: 500;
   line-height: 150%;
   text-wrap: nowrap;
@@ -528,12 +546,19 @@ h3 {
   border-radius: 16px 0px 0px 16px;
 }
 /* FAQ */
+.faq__header * {
+  pointer-events: none;
+  transition: .8s;
+}
 .faq {
   display: flex;
   flex-direction: column;
   margin: 0 auto 100px auto;
   gap: 48px;
   width: calc(100% - 300px);
+}
+[arrowRed] {
+  transition: .4s;
 }
 .faq__title {
   font-size: 58px;
@@ -542,11 +567,7 @@ h3 {
   color: #1D1D1D;
 }
 .faq__container {
-  transition: .2s;
   width: 100%;
-}
-.faq__item {
-  transition: .2s;
 }
 .faq__header {
   display: flex;
@@ -557,10 +578,6 @@ h3 {
   cursor: pointer;
   width: 100%;
   margin-bottom: 42px;
-}
-.faq__header * {
-  pointer-events: none;
-  transition: .8s;
 }
 .faq__p {
   color: #4D4D4D;
@@ -576,7 +593,7 @@ h3 {
 }
 /* COLLAPSE */
 collapse, collapse * {
-  transition: .5s;
+  transition: .3s;
 }
 collapse {
   display: grid;
@@ -606,7 +623,6 @@ collapse-card {
   color: #4d4d4d;
   background: #FCFCFC;
   width: 100%;
-  /* min-width: 380px; */
   max-width: 600px;
   height: max-content;
 }
@@ -620,9 +636,11 @@ collapse-header {
   min-height: max-content;
 }
 collapse-content {
-  height: 0px;
+  max-height: 0px;
+  height: 0%;
   overflow: hidden;
   font-size: 16px;
+  margin-top: 0px;
 }
 collapse-content p {
   line-height: 124%;
@@ -634,12 +652,12 @@ collapse-content p {
   transform: rotate(-180deg);
 }
 .collapse--open collapse-content {
-  height: max-content;
+  max-height: 692px;
+  height: 100%;
   margin-top: 12px;
 }
 .collapse--open collapse-header {
   font-weight: 600;
-  transition: .2s;
 }
 /* FOOTER ↓ */
 footer {
@@ -741,10 +759,29 @@ footer {
   }
   h1 {
     font-size: 32px;
+    margin-bottom: 4px;
+  }
+  .banner__cellphone {
+    object-fit: contain;
+    max-width: 400px;
+  }
+  .banner__col--2 {
+    display: flex;
+    justify-content: center;
+    height: max-content;
+  }
+  .banner__col--1 {
+    width: 100%;
+    gap: 24px;
+    max-width: initial;
+  }
+  .banner__caroco {
+    margin-bottom: 4px;
   }
   /* INOVAR */
   .inovar__ctn {
     padding: 32px 20px;
+    gap: 16px;
   }
   .inovar__grafismo--1 {
     width: 103px;
@@ -754,6 +791,9 @@ footer {
   }
   .inovar__p {
     line-height: 150%;
+  }
+  .inovar__p--mb {
+    margin-bottom: 10px;
   }
   .inovar__p--1, .inovar__p {
     font-size: 16px;
@@ -766,21 +806,27 @@ footer {
     width: 142px;
     height: 149px;
     right: -74px;
-    bottom: 42px;
+    bottom: -24px;
   }
   .inovar__container {
-    padding-bottom: 32px;
+    padding-bottom: 0;
     width: 100%;
-    overflow: hidden;
+    overflow-x: clip;
   }
   .inovar__video {
     border-radius: 10px;
+    height: 200px;
+  }
+  .inovar__arrow {
+    width: 24px;
+    height: 24px;
   }
   .inovar__ctn {
     border-radius: 0;
   }
   /* BREVE */
   .breve {
+    margin-top: 32px;
     margin-bottom: 40px;
   }
   .breve__container {
@@ -795,6 +841,10 @@ footer {
   }
   h3 {
     font-size: 32px;
+    margin-bottom: 28px;
+  }
+  .breve__chegam {
+    margin-bottom: 28px;
   }
   .breve__item {
     flex-direction: column;
@@ -806,6 +856,10 @@ footer {
   .breve__pix {
     margin-bottom: 32px;
   }
+  .breve__column--1 {
+    margin-left: initial;
+    max-width: initial;
+  }
   /* MULTI */
   .multi__grid {
     display: flex;
@@ -813,32 +867,50 @@ footer {
     gap: 40px;
   }
   .multi__column--2 {
-    gap: 32px;
+    gap: 28px;
   }
   .multi__tudo {
     font-size: 24px;
+    font-weight: 700;
   }
   .multi__saldo {
     font-size: 16px;
+    margin-bottom: 4px;
+  }
+  .multi__alert {
+    padding: 28px 32px;
   }
   .multi__img {
     width: 52px;
     height: 52px;
   }
+  .multi__column--2 {
+    max-width: initial;
+  }
+  .multi__column--1 {
+    display: flex;
+    justify-content: center;
+    margin-left: initial;
+  }
   /* TAGS */
   .tags {
     padding: 0 20px;
     gap: 10px;
-    margin: 48px auto 0px auto;
+    margin: 48px auto 28px auto;
     justify-content: flex-start;
+    flex-direction: column;
   }
   .tags__tag {
     height: 37px;
     border-radius: 90px;
     padding: 7px 17px;
     gap: 8px;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 14px;
+  }
+  .tags__check {
+    width: 24px;
+    height: 24px;
   }
   /* CD */
   .cd__icon {
@@ -852,8 +924,8 @@ footer {
   }
   /* CARDS */
   .cards {
-    padding: 75px 20px;
-    overflow: hidden;
+    padding: 20px;
+    overflow-x: clip;
   }
   .cd__grid {
     flex-direction: column;
@@ -903,7 +975,20 @@ footer {
     font-size: 32px;
   }
   .faq {
-    margin: 24px auto;
+    margin: 20px auto;
+    gap: 32px;
+  }
+  .faq__header {
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  /* COLLAPSE */
+  collapse { 
+    display: flex;
+    flex-direction: column;
+  }
+  collapse-card {
+    max-width: initial;
   }
   /* FOOTER */
   .footer__redes, .footer__termos, .footer__privacidade, .footer__icons {
@@ -920,6 +1005,7 @@ footer {
   }
   .footer__logo {
     object-position: center;
+    width: 100%;
     margin-bottom: 24px;
   }
   .footer__icons {
@@ -949,7 +1035,7 @@ footer {
 <section class="max__width banner">
   <div class="banner__grid">
     <div class="banner__col--1">
-      <img src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/2b659eba-1958-4136-9c01-400f486f807e.png" width="45" height="62" alt="">
+      <img class="banner__caroco" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/2b659eba-1958-4136-9c01-400f486f807e.png" width="45" height="62" alt="">
       <h1>Sua jornada, nosso ecossistema de soluções</h1>
       <p>
         Desde o início, a Caju foi pensada para facilitar o dia a dia de quem cuida e de quem recebe.
@@ -967,7 +1053,7 @@ footer {
     </div>
     
     <div class="banner__col--2">
-      <img class="banner__cellphone" src="https://cdn.pixabay.com/photo/2013/07/13/12/46/iphone-160307_1280.png" width="" height="" alt="">
+      <img class="banner__cellphone" src="iPhone 15 Pro - Natural Titanium - Portrait.png" width="" height="" alt="">
     </div>
   </div>
 </section>
@@ -981,12 +1067,13 @@ footer {
       <p class="inovar__p--1">Inovar faz parte da nossa essência.</p>
       <h2>Liderar a mudança é escolha.</h2>
       
-      <p class="inovar__p">Na Caju, acreditamos que cuidar de pessoas exige <strong>soluções que evoluem junto com o tempo</strong>, com os desafios e com as necessidades das empresas e colaboradores.</p>
+      <p class="inovar__p inovar__p--mb">Na Caju, acreditamos que cuidar de pessoas exige <strong>soluções que evoluem junto com o tempo</strong>, com os desafios e com as necessidades das empresas e colaboradores.</p>
       <p class="inovar__p">
         Por isso, estamos <strong>ampliando nosso ecossistema de soluções</strong>.
         <br>
         Para dar mais autonomia, mais controle, mais simplicidade para quem vive essa jornada todos os dias.
       </p>
+      <img class="inovar__arrow" src="down arrow.svg" width="60" height="60" alt="">
       <div class="inovar__video"></div>
     </div>
 
@@ -1035,7 +1122,7 @@ footer {
     </div>
 
     <div class="breve__column--2">
-      <img src="https://cdn.pixabay.com/photo/2013/07/13/12/46/iphone-160307_1280.png" width="420" height="906" alt="">
+      <img class="cellphone" src="Mask group.png" width="420" height="906" alt="">
     </div>
 
   </div>
@@ -1046,7 +1133,7 @@ footer {
 
   <div class="multi__grid">
     <div class="multi__column--1">
-      <img src="https://cdn.pixabay.com/photo/2013/07/13/12/46/iphone-160307_1280.png" width="420" height="906" alt="">
+      <img class="cellphone" src="Mask group.png" width="420" height="906" alt="">
     </div>
   
     <div class="multi__column--2">
@@ -1056,7 +1143,10 @@ footer {
           <img class="multi__img" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/6d227e64-1112-485c-90bb-a64f7661a525.png" height="97" width="97" alt="">
           <p>Saldo Multi</p>
         </div>
-        <p class="multi__tudo">O saldo que vale para tudo!</p>
+        <p class="multi__tudo">
+          <img width="28" height="28" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/85a18373-08ce-458c-ac18-bcd114e5740c.png" alt="">
+          O saldo que vale para tudo!
+        </p>
       </div>
 
       <p class="multi__saldo">Com o Saldo Multi, o colaborador tem liberdade para usar como quiser nas  8 categorias da CLT: saúde, mobilidade,  cultura e até alimentação, caso os valores depositados pelo RH já tenham sido consumidos.</p>
@@ -1070,9 +1160,9 @@ footer {
 <!-- TAGS -->
 <section class="tags">
 
-  <div class="tags__tag tags__tag--vermelha">Comprar um remédio ou agendaterapia</div>
-  <div class="tags__tag tags__tag--vermelha-escuro">Pagar o transporte</div>
-  <div class="tags__tag tags__tag--laraja"> Investir em educação ou bem-estar</div>
+  <div class="tags__tag tags__tag--vermelha"><img class="tags__check" src="Checked.png" width="42" height="42" alt=""> Comprar um remédio ou agendaterapia</div>
+  <div class="tags__tag tags__tag--vermelha-escuro"><img class="tags__check" src="Checked.png" width="42" height="42" alt=""> Pagar o transporte</div>
+  <div class="tags__tag tags__tag--laraja"><img class="tags__check" src="Checked.png" width="42" height="42" alt="">  Investir em educação ou bem-estar</div>
 
 </section>
 
@@ -1082,7 +1172,7 @@ footer {
     <img class="cd__grafismo cd__grafismo--1" width="175" height="175" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/33799702-bc85-48d9-8aad-86859b653149.png" alt="">
     <div class="cd__card">
       <img class="cd__icon" width="72" height="72" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/c41dac48-6c11-4dee-89c3-74962e4394b1.png" alt="">
-      <img class="cd__img" src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      <img class="cd__img" src="891c5b9552860c6244994fefcbe7e4fd8f76dddd.jpg" alt="">
       
       <div class="cd__texts">
         <p class="cd__title">Alimentação</p>
@@ -1098,7 +1188,7 @@ footer {
     <div class="cd__card">
       <img class="cd__grafismo cd__grafismo--2" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/173f5de0-a00a-4cd4-b64a-6cbae9f62f2b.png" width="289" height="289" alt="">
       <img class="cd__icon" width="72" height="72" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/6107043e-91d1-4773-94a9-4d2a8a003fab.png" alt="">
-      <img class="cd__img" src="https://plus.unsplash.com/premium_photo-1710467003053-675011709dc7?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      <img class="cd__img" src="7bd399163aea62a69b3311c9ef0dcb08e6162bc2.png" alt="">
       
       <div class="cd__texts">
         <p class="cd__title">Alimentação</p>
@@ -1113,7 +1203,7 @@ footer {
 
     <div class="cd__card cd__z-index--3">
       <img class="cd__icon" width="72" height="72" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/6e291a53-9950-4ce4-b3fb-4eb34ee7d007.png" alt="">
-      <img class="cd__img" src="https://plus.unsplash.com/premium_photo-1684888476715-a00870431463?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      <img class="cd__img" src="ce6724053bdcc00fe3482abedebc77b98daea59c.png" alt="">
       
       <div class="cd__texts">
         <p class="cd__title">Alimentação</p>
@@ -1129,7 +1219,7 @@ footer {
     <div class="cd__card">
       <img class="cd__grafismo cd__grafismo--3" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/f6906c82-7bd2-449a-8818-44babb50b4a9.png" width="122" height="122" alt="">
       <img class="cd__icon" width="72" height="72" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/d0492613-735a-4ed7-91e6-b07e2739a8d8.png" alt="">
-      <img class="cd__img" src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      <img class="cd__img" src="b04e842898e93f808dbed6d4dea8e55e45c4e4fb.png" alt="">
       
       <div class="cd__texts">
         <p class="cd__title">Alimentação</p>
@@ -1153,7 +1243,7 @@ footer {
 
   <div class="faq__container" id="faqId">
 
-    <div class="faq__item" faqItem>
+    <div faqItem>
       <button class="faq__header">
         <p>Sou empresa</p>
         <img arrowRed src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/0da0b369-9b9b-41fa-90e4-1890fe339aca.png" width="40" height="40" alt="">
@@ -1185,7 +1275,7 @@ footer {
 
 
     <!-- 2 -->
-    <div class="faq__item" faqItem>
+    <div faqItem>
       <button class="faq__header">
         <p>Sou colaborador</p>
         <img arrowRed src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/0da0b369-9b9b-41fa-90e4-1890fe339aca.png" width="40" height="40" alt="">

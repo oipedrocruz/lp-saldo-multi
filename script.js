@@ -38,7 +38,7 @@ const data = {
     },
     {
       title: 'Posso usar a Conta Digital para qualquer tipo de depósito?',
-      htmlContent: `Recomendamos o uso da Conta para ajudas de custo e auxílio-creche. Outras finalidades podem ser usadas desde que previamente avaliadas com o time jurídico e fiscal da empresa para evitar possíveis tributos ou encargos.`
+      htmlContent: `Recomendamos o uso da Conta para <strong>ajudas de custo e auxílio-creche</strong>. Outras finalidades podem ser usadas desde que previamente avaliadas com o time jurídico e fiscal da empresa para evitar possíveis tributos ou encargos.`
     },
   ],
 
@@ -56,14 +56,6 @@ const data = {
     {
       title: 'É possível configurar limites no Saldo Multi?',
       htmlContent: `Não, o Saldo Multi pode ser utilizado nas 8 categorias já liberadas, mas, caso o RH queira restringir o uso em categorias específicas, pode travar os saldos individualmente, como já acontece atualmente.`
-    },
-    {
-      title: 'O que muda para o produto Caju Premiações e Caju Despesas?',
-      htmlContent: `
-        <p>O <strong>Caju Premiações</strong> continuará disponível na plataforma da Caju para RH para depósitos de premiações, mas agora a Caju disponibilizará esses saldos aos colaboradores na <strong>Conta Digital</strong>.</p>
-        <br/>
-        <p>Quanto ao <strong>Caju Despesas</strong>, os reembolsos serão depositados diretamente na Conta Digital do colaborador, enquanto os adiantamentos da empresa serão depositados em uma carteira separada, pois o saldo pertence à empresa</p>
-      `
     },
   ],
 
@@ -87,7 +79,7 @@ const data = {
     {
       title: 'Como o RH deve escolher onde depositar os saldos e posso continuar com as categorias tradicionais?',
       htmlContent: `
-        <p>O RH pode optar por depositar na Conta Digital (para saldos que não são benefícios), no Saldo Multi (saldo de benefício com flexibilidade) ou nas categorias tradicionais (saldo de benefícios com regras específicas). As categorias tradicionais, como Alimentação e Cultura, continuarão disponíveis.</p>
+        <p>O RH pode optar por depositar na <strong>Conta Digital</strong> (para saldos que não são benefícios), no <strong>Saldo Multi</strong> (saldo de benefício com flexibilidade) ou nas <strong>categorias tradicionais</strong> (saldo de benefícios com regras específicas). As categorias tradicionais, como Alimentação e Cultura, continuarão disponíveis.</p>
         <br/>
         <p>Agora o RH tem mais possibilidades de fazer depósitos de saldos para os colaboradores. Para depositar saldo de benefícios regulados pelo PAT ou CLT, benefícios fixos como Alimentação e Refeição e os benefícios flexíveis com as categorias educação, mobilidade, cultura, etc, nada muda, o RH pode continuar fazendo os depósitos como sempre. </p>
         <br/>
@@ -180,7 +172,7 @@ const data = {
     },
     {
       title: 'A Conta digital é igual a uma conta salário?',
-      htmlContent: `Não. A Conta Digital não é uma conta salário. Ela pode ser usada para receber valores como auxílio-creche, ajuda de custo, premiações, entre outros. Vale ressaltar que a conta digital da Caju é uma conta de pagamento que pode receber recursos decorrentes de portabilidade salarial`
+      htmlContent: `Não. A Conta Digital não é uma conta salário. Ela pode ser usada para receber valores como auxílio-creche, ajuda de custo, premiações, entre outros. Vale ressaltar que a conta digital da Caju é uma conta de pagamento que pode receber recursos decorrentes de portabilidade salarial.`
     },
     {
       title: 'O que acontece se eu não ativar o Pix?',
