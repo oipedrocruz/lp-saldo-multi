@@ -246,13 +246,15 @@ h2 {
   margin-top: 24px;
   z-index: 4;
 }
-.banner__header a {
-  height: 32px;
-  margin: auto;
+.banner__a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 .banner__logo {
-  object-fit: contain;
-  object-position: left;
   height: 32px;
   width: max-content;
 }
@@ -1031,7 +1033,7 @@ footer {
 <!-- HEADER -->
 <div class="max__width">
   <header class="banner__header">
-    <a data-hash="e_003_001_037_002_057_001" href="https://caju.com.br/" target="_blank">
+    <a class="banner__a" data-hash="e_003_001_037_002_057_001" href="https://caju.com.br/" target="_blank">
       <img class="banner__logo" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/cb719f09-f4b4-4754-8538-89a322ee8a43.png" width="300" height="32" alt="">
     </a>
   </header>
