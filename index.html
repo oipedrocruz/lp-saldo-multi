@@ -108,7 +108,7 @@ h1 {
   display: grid;
   grid-template-columns: max-content 1fr;
   gap: 100px;
-  padding: 200px 0 0 0;
+  padding: 84px 0 0 0;
   width: 100%;
   max-width: 1000px;
   margin: auto;
@@ -234,24 +234,21 @@ h2 {
 }
 /* HEADER */
 .banner__header {
-  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 68px;
-  width: calc(100% - 100px);
+  width: 100%;
   padding: 0 16px 0 32px;
   max-width: 1280px;
-  top: 24px;
-  margin: auto;
-  left: 0;
-  right: 0;
   background: #E80537;
   border-radius: 24px;
+  margin-top: 24px;
   z-index: 4;
 }
 .banner__header a {
   height: 32px;
+  margin: auto;
 }
 .banner__logo {
   object-fit: contain;
@@ -462,7 +459,6 @@ h3 {
   flex-wrap: nowrap;
   width: 25%;
   height: 540px;
-  background: #F08787;
   border-radius: 16px;
   cursor: pointer;
   transition: .8s; /* Tempo para fechar o card abrir */
@@ -517,9 +513,20 @@ h3 {
   pointer-events: none;
   transition: .1s;
   border-radius: 0 16px 16px 0;
-  background: #f0878731;
   backdrop-filter: blur(50px);
   z-index: 3;
+}
+.cd__card--vermelho {
+  background: #F08787;
+}
+.cd__card--verde {
+  background: #9CE59C;
+}
+.cd__card--amarelo {
+  background: #FFE082;
+}
+.cd__card--roxo {
+  background: #C1ABE6;
 }
 .cd__title {
   font-weight: 700;
@@ -743,19 +750,17 @@ footer {
   .max__width {
     width: calc(100% - 40px);
   }
-  /* HEADER */
-  .banner__header {
-    width: calc(100% - 40px);
-  }
   /* BANNER */
   .banner__grid {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    padding: 118px 0 0 0;
+    padding: 24px 0 0 0;
   }
   .banner__tags {
     width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
   }
   h1 {
     font-size: 32px;
@@ -815,7 +820,7 @@ footer {
   }
   .inovar__video {
     border-radius: 10px;
-    height: 200px;
+    height: 53.5vw;
   }
   .inovar__arrow {
     width: 24px;
@@ -1025,11 +1030,13 @@ footer {
 
 </body>
 <!-- HEADER -->
-<header class="banner__header">
-  <a data-hash="e_003_001_037_002_057_001" href="https://caju.com.br/" target="_blank">
-    <img class="banner__logo" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/cb719f09-f4b4-4754-8538-89a322ee8a43.png" width="300" height="32" alt="">
-  </a>
-</header>
+<div class="max__width">
+  <header class="banner__header">
+    <a data-hash="e_003_001_037_002_057_001" href="https://caju.com.br/" target="_blank">
+      <img class="banner__logo" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/cb719f09-f4b4-4754-8538-89a322ee8a43.png" width="300" height="32" alt="">
+    </a>
+  </header>
+</div>
 
 <!-- BANNER -->
 <section class="max__width banner">
@@ -1074,7 +1081,8 @@ footer {
         Para dar mais autonomia, mais controle, mais simplicidade para quem vive essa jornada todos os dias.
       </p>
       <img class="inovar__arrow" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/43a0fd7b-57a8-4298-93e4-353811bf6f2b.png" width="60" height="60" alt="">
-      <div class="inovar__video"></div>
+      <iframe  class="inovar__video" width="560" height="315" src="https://www.youtube.com/embed/UEXH9gOx6AU?si=27ZF9QWn8g5fjMNX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
     </div>
 
   </div>
@@ -1170,7 +1178,7 @@ footer {
 <section class="cards">
   <div class="cd__grid">
     <img class="cd__grafismo cd__grafismo--1" width="175" height="175" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/33799702-bc85-48d9-8aad-86859b653149.png" alt="">
-    <div class="cd__card">
+    <div class="cd__card cd__card--vermelho">
       <img class="cd__icon" width="72" height="72" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/c41dac48-6c11-4dee-89c3-74962e4394b1.png" alt="">
       <img class="cd__img" src="./src/891c5b9552860c6244994fefcbe7e4fd8f76dddd.jpg" alt="">
       
@@ -1185,7 +1193,7 @@ footer {
       </div>
     </div>
 
-    <div class="cd__card">
+    <div class="cd__card cd__card--verde">
       <img class="cd__grafismo cd__grafismo--2" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/173f5de0-a00a-4cd4-b64a-6cbae9f62f2b.png" width="289" height="289" alt="">
       <img class="cd__icon" width="72" height="72" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/6107043e-91d1-4773-94a9-4d2a8a003fab.png" alt="">
       <img class="cd__img" src="./src/7bd399163aea62a69b3311c9ef0dcb08e6162bc2.png" alt="">
@@ -1201,7 +1209,7 @@ footer {
       </div>
     </div>
 
-    <div class="cd__card cd__z-index--3">
+    <div class="cd__card cd__card--amarelo cd__z-index--3">
       <img class="cd__icon" width="72" height="72" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/6e291a53-9950-4ce4-b3fb-4eb34ee7d007.png" alt="">
       <img class="cd__img" src="./src/ce6724053bdcc00fe3482abedebc77b98daea59c.png" alt="">
       
@@ -1216,7 +1224,7 @@ footer {
       </div>
     </div>
 
-    <div class="cd__card">
+    <div class="cd__card cd__card--roxo">
       <img class="cd__grafismo cd__grafismo--3" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/f6906c82-7bd2-449a-8818-44babb50b4a9.png" width="122" height="122" alt="">
       <img class="cd__icon" width="72" height="72" src="https://image.fala.caju.com.br/lib/fe3211737164047b701270/m/1/d0492613-735a-4ed7-91e6-b07e2739a8d8.png" alt="">
       <img class="cd__img" src="./src/b04e842898e93f808dbed6d4dea8e55e45c4e4fb.png" alt="">
